@@ -1,17 +1,15 @@
-// package LAB5
-// import chisel3._
-// import org.scalatest._
-// import chiseltest._
+package LAB5
+import chisel3._
+import org.scalatest._
+import chiseltest._
 
-// class MUX321 extends FreeSpec with ChiselScalatestTester {
-//     "MUX123" in {
-//         test(new Mux2_to_1()){c=>
-//         c.io.in1.poke(1.U)
-//         c.clock.step(20)
-//         c.io.out.expect(2.U)
-//         c.io.in2(1.U)
-//         c.io.sel(1.B)
-
-//         }
-//     }
-// }
+class STAT_ALU extends FreeSpec with ChiselScalatestTester{
+    "ALU Test" in { 
+        test(new ALU_with_statements(4)){ c=>
+        c.io.alu_oper.poke("b1111".U)
+        c.io.arg_x.poke(3.U)
+        c.io.arg_y.poke(0.B)
+        c.clock.step(1)
+        c.io.alu_out.expect(0.U)}
+    }
+}
