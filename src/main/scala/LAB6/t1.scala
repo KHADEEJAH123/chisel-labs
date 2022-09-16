@@ -1,5 +1,5 @@
 package LAB6
-import chisel3 . _
+import chisel3._
 import chisel3.util._
 class counter_task1 (val max : Int , val min : Int = 0) extends Module {
     val io = IO (new Bundle {
